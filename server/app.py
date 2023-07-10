@@ -27,7 +27,7 @@ db.init_app(app)
 
 @app.route('/')
 def home():
-    return '<h1>Automobile Get Api</h1>'
+    return render_template("index.html")
 @app.route('/cars')
 def cars():
     cars=[]
