@@ -5,7 +5,7 @@ function CarCard({ car }) {
   const { id, name, image } = car;
 
   const handleDeleteClick = () => {
-    fetch(`http://127.0.0.1:5555/cars/${id}`, {
+    fetch(`/cars/${id}`, {
       method: "DELETE"
     })
       .then(response => {

@@ -6,7 +6,7 @@ function CarDetail() {
     const [car, setCar] = useState({});
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:5555/cars/${id}`)
+        fetch(`/cars/${id}`)
           .then((r) => r.json())
           .then((car) => setCar(car));
     
