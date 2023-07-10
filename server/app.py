@@ -26,7 +26,9 @@ db.init_app(app)
 
 
 @app.route('/')
-def home():
+@app.route('/<int:id>')
+def index(id=0
+          ):
     return render_template("index.html")
 @app.route('/cars')
 def cars():
