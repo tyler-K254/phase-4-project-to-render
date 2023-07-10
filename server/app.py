@@ -3,9 +3,9 @@ from flask import Flask, jsonify, request, make_response, render_template
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from models import db, Car, car_features, Feature
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 from flask_cors import CORS
 
 app = Flask(
