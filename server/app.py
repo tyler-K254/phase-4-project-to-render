@@ -172,6 +172,12 @@ def handle_cars():
         }
         response = make_response(jsonify(car_dict), 201)
         return response
+    
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return render_template("index.html")
+
 
 if __name__ == '__main__':
     app.run(port=5555)
