@@ -15,7 +15,7 @@ function App() {
           <main>
           <Navbar />
             <Routes>
-              <Route path="/" element={<Login />}/>
+              {/* <Route path="/" element={<Login />}/> */}
               <Route path="/components/Login" element={<Login />}/>
               <Route path="/components/Home" element={<Home />}/>
               <Route path="/components/Mainpage" element={<Mainpage />}/>
