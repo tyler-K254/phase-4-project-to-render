@@ -29,7 +29,7 @@ db.init_app(app)
 @app.route('/<int:id>')
 def index(id=0
           ):
-    return render_template("index.html")
+    return render_template("app.js")
 @app.route('/cars')
 def cars():
     cars=[]
