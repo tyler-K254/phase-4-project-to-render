@@ -6,16 +6,17 @@ from models import db, Car, car_features, Feature
 from dotenv import load_dotenv
 from flask_cors import CORS
 
+#static path
 app = Flask(
     __name__,
     static_url_path='',
     static_folder='../client/build',
-    template_folder='../client/build'
+    template_folder='../client/build' 
 )
 
 load_dotenv()
 
-#kgu
+#kgudwa
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///automobile.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -29,7 +30,7 @@ migrate = Migrate(app, db)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
-    return render_template("index.html")
+    return render_template("index.html") # Change path to index.html
 
 @app.route('/cars')
 def cars():
@@ -40,6 +41,7 @@ def cars():
             "name":car.name,
             "model":car.model,
             "image":car.image,
+            
             
         }
         cars.append(car_dict)
