@@ -4,9 +4,9 @@ from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from models import db, Car, car_features, Feature
 from dotenv import load_dotenv
-
-load_dotenv()
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy  # Import SQLAlchemy here
+
 
 app = Flask(
     __name__,
@@ -14,14 +14,19 @@ app = Flask(
     static_folder='../client/build',
     template_folder='../client/build'
 )
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///automobile.db'
+
+
+load_dotenv()
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI') or 'sqlite:///automobile.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 CORS(app)
 
+db = SQLAlchemy(app)  # Create a single instance of SQLAlchemy
+
 migrate = Migrate(app, db)
-db.init_app(app)
 
 
 
