@@ -10,8 +10,8 @@ from flask_cors import CORS
 app = Flask(
     __name__,
     static_url_path='',
-    static_folder='../client/build',
-    template_folder='../client/build'
+    static_folder='../client/public',
+    template_folder='../client/public'
 )
 
 load_dotenv()
