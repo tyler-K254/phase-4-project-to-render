@@ -15,6 +15,8 @@ app = Flask(
 
 load_dotenv()
 
+#kgu
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///automobile.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
