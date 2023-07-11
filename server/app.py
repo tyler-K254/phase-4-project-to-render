@@ -30,9 +30,9 @@ migrate = Migrate(app, db)
 
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
+@app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
     return render_template("index.html")
 
 @app.route('/cars')
