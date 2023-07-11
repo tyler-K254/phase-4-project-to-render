@@ -5,13 +5,12 @@ from flask_restful import Api, Resource
 from models import db, Car, car_features, Feature
 from dotenv import load_dotenv
 from flask_cors import CORS
-# from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(
     __name__,
-    # static_url_path='',
-    # static_folder='../client/build',
-    # template_folder='../client/build'
+    static_url_path='',
+    static_folder='../client/build',
+    template_folder='../client/build'
 )
 
 load_dotenv()
@@ -22,11 +21,8 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 CORS(app)
 
-# db = SQLAlchemy(app)  # Create a single instance of SQLAlchemy
 db.init_app(app)
 migrate = Migrate(app, db)
-
-
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
