@@ -14,7 +14,7 @@ app = Flask(
     static_folder='../client/build',
     template_folder='../client/build'
 )
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///automobile.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
@@ -25,11 +25,11 @@ db.init_app(app)
 
 
 
-@app.route('/')
-@app.route('/<int:id>')
-def index(id=0
-          ):
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
     return render_template("index.html")
+
 @app.route('/cars')
 def cars():
     cars=[]
@@ -173,10 +173,7 @@ def handle_cars():
         response = make_response(jsonify(car_dict), 201)
         return response
     
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return render_template("index.html")
+
 
 
 if __name__ == '__main__':
