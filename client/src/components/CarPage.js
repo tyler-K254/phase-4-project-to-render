@@ -8,7 +8,7 @@ function CarPage() {
     const [searchTerm, setSearchTerm] = useState("");
   
     useEffect(() => {
-      fetch("/cars")
+      fetch("http://127.0.0.1:5555/cars")
         .then((r) => r.json())
         .then((carsArray) => {
           setCars(carsArray);
